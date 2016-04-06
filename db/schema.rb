@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160406041520) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "classrooms", force: :cascade do |t|
     t.datetime "entry_at"
     t.datetime "created_at", null: false
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160406041520) do
     t.integer  "student_id"
   end
 
-  add_index "classrooms", ["course_id"], name: "index_classrooms_on_course_id"
-  add_index "classrooms", ["student_id"], name: "index_classrooms_on_student_id"
+  add_index "classrooms", ["course_id"], name: "index_classrooms_on_course_id", using: :btree
+  add_index "classrooms", ["student_id"], name: "index_classrooms_on_student_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -40,4 +43,6 @@ ActiveRecord::Schema.define(version: 20160406041520) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "classrooms", "courses"
+  add_foreign_key "classrooms", "students"
 end
