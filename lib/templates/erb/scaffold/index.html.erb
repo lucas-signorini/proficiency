@@ -1,0 +1,46 @@
+<p id="notice"><%%= notice %></p>
+
+<div class="row margin-top-10">
+  <div class="col-md-12 col-sm-12">
+    <!-- BEGIN PORTLET-->
+    <div class="portlet light ">
+      <div class="portlet-title">
+        <div class="caption caption-md">
+          <i class="icon-bar-chart theme-font hide"></i>
+          <span class="caption-subject theme-font bold uppercase">Listagem <%= plural_table_name.titleize %></span>
+        </div>
+        <div class="actions">
+          <%%= link_to raw('<i class="fa fa-plus"></i> Novo <%= singular_table_name.titleize %>'), new_<%= singular_table_name %>_path, class:"btn blue" %>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover" id="sample_1">
+          <thead>
+          <tr>
+            <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <th><%= attribute.human_name %></th>
+            <% end -%>
+            <th>Ações</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+          <tr class="odd gradeX">
+            <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+            <% end -%>
+            <td width="300px">
+              <%%= link_to raw('<i class="fa fa-search"></i> Ver'), <%= singular_table_name %>, class:"btn btn-xs green" %>&nbsp;
+              <%%= link_to raw('<i class="fa fa-edit"></i> Editar'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class:"btn btn-xs yellow" %>&nbsp;
+              <%%= link_to raw('<i class="fa fa-trash-o"></i> Excluir'), <%= singular_table_name %>, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' }, class:"btn btn-xs red" %>
+            </td>
+          </tr>
+          <%% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END PORTLET-->
+  </div>
+</div>

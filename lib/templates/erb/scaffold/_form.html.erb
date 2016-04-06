@@ -1,0 +1,51 @@
+<%%= form_for(<%= singular_table_name %>,  :html => {:class => 'form-horizontal'}) do |f|%>
+  <%% if <%= singular_table_name %>.errors.any? %>
+    <div id="error_explanation">
+      <h2>Não foi possível salvar <%= singular_table_name %>:</h2>
+
+      <ul>
+      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+<%
+   i=2
+    j=2
+%>
+
+<div class="portlet-body form form-horizontal">
+    <div class="form-body">
+      <div class="row">
+        <% attributes.each do |attribute| %>
+            <% if attribute.password_digest? -%>
+                <%%= f.label :password %><br>
+                <%%= f.password_field :password %>
+
+                <%%= f.label :password_confirmation %><br>
+                <%%= f.password_field :password_confirmation %>
+            <% else -%>
+            <div class="col-md-6">
+                <div class="form-group">
+                <%%= f.label :<%= attribute.column_name %>, :class => 'control-label col-md-3' %>
+                <div class="col-md-9">
+                  <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>,:class => 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <% end -%>
+        <% end -%>
+        </div>
+    </div>
+</div>
+
+<div class="form-actions">
+  <div class="row text-center">
+    <button type="submit" name="commit" class="btn green">
+      <i class="fa fa-save"></i> Salvar
+    </button>
+  </div>
+</div>
+<%% end %>

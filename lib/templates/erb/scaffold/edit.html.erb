@@ -1,0 +1,20 @@
+<div class="row margin-top-10">
+  <div class="col-md-12 col-sm-12">
+    <div class="portlet light ">
+      <div class="portlet-title">
+        <div class="caption caption-md">
+          <i class="icon-bar-chart theme-font hide"></i>
+          <span class="caption-subject theme-font bold uppercase">Editar <%= singular_table_name.titleize %></span>
+        </div>
+        <div class="actions">
+          <%%= link_to  raw('<i class="fa fa-reply"></i> Voltar'), <%= index_helper %>_path, class:"btn btn-xs red"%>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

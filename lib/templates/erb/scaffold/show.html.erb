@@ -1,0 +1,28 @@
+<div class="row margin-top-10">
+  <div class="col-md-12 col-sm-12">
+    <!-- BEGIN PORTLET-->
+    <div class="portlet light ">
+      <div class="portlet-title">
+        <div class="caption caption-md">
+          <i class="icon-bar-chart theme-font hide"></i>
+          <span class="caption-subject theme-font bold uppercase">Exibir <%= singular_table_name.titleize %></span>
+        </div>
+        <div class="actions">
+          <%%= link_to raw('<i class="fa fa-edit"></i> Editar'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class:"btn btn-xs yellow" %>
+          <%%= link_to  raw('<i class="fa fa-reply"></i> Voltar'), <%= index_helper %>_path, class:"btn btn-xs red"%>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <% attributes.reject(&:password_digest?).each do |attribute| -%>
+            <p>
+              <strong><%= attribute.human_name %>:</strong>
+              <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+            </p>
+        <% end -%>
+      </div>
+    </div>
+    <!-- END PORTLET-->
+  </div>
+</div>
+
+

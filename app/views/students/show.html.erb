@@ -1,0 +1,34 @@
+<div class="row margin-top-10">
+  <div class="col-md-12 col-sm-12">
+    <!-- BEGIN PORTLET-->
+    <div class="portlet light ">
+      <div class="portlet-title">
+        <div class="caption caption-md">
+          <i class="icon-bar-chart theme-font hide"></i>
+          <span class="caption-subject theme-font bold uppercase">Exibir Student</span>
+        </div>
+        <div class="actions">
+          <%= link_to raw('<i class="fa fa-edit"></i> Editar'), edit_student_path(@student), class:"btn btn-xs yellow" %>
+          <%= link_to  raw('<i class="fa fa-reply"></i> Voltar'), students_path, class:"btn btn-xs red"%>
+        </div>
+      </div>
+      <div class="portlet-body">
+                    <p>
+              <strong>Name:</strong>
+              <%= @student.name %>
+            </p>
+                    <p>
+              <strong>Register number:</strong>
+              <%= @student.register_number %>
+            </p>
+                    <p>
+              <strong>Status:</strong>
+              <%= @student.status %>
+            </p>
+              </div>
+    </div>
+    <!-- END PORTLET-->
+  </div>
+</div>
+
+

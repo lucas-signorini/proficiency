@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row margin-top-10">
+  <div class="col-md-12 col-sm-12">
+    <!-- BEGIN PORTLET-->
+    <div class="portlet light ">
+      <div class="portlet-title">
+        <div class="caption caption-md">
+          <i class="icon-bar-chart theme-font hide"></i>
+          <span class="caption-subject theme-font bold uppercase">Listagem Students</span>
+        </div>
+        <div class="actions">
+          <%= link_to raw('<i class="fa fa-plus"></i> Novo Student'), new_student_path, class:"btn blue" %>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover" id="sample_1">
+          <thead>
+          <tr>
+                            <th>Name</th>
+                            <th>Register number</th>
+                            <th>Status</th>
+                        <th>Ações</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @students.each do |student| %>
+          <tr class="odd gradeX">
+                            <td><%= student.name %></td>
+                            <td><%= student.register_number %></td>
+                            <td><%= student.status %></td>
+                        <td width="300px">
+              <%= link_to raw('<i class="fa fa-search"></i> Ver'), student, class:"btn btn-xs green" %>&nbsp;
+              <%= link_to raw('<i class="fa fa-edit"></i> Editar'), edit_student_path(student), class:"btn btn-xs yellow" %>&nbsp;
+              <%= link_to raw('<i class="fa fa-trash-o"></i> Excluir'), student, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' }, class:"btn btn-xs red" %>
+            </td>
+          </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- END PORTLET-->
+  </div>
+</div>

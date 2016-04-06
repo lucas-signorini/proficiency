@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+  <title>Sms - App</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="author">
+  <!-- BEGIN GLOBAL MANDATORY STYLES -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="page-header">
+<!-- BEGIN HEADER MENU -->
+    <div class="page-header-menu">
+      <div class="container">
+        <!-- BEGIN HEADER SEARCH BOX -->
+        <!-- END HEADER SEARCH BOX -->
+        <!-- BEGIN MEGA MENU -->
+        <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+        <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+        <div class="hor-menu ">
+          <%= render 'menus' %>
+        </div>
+        <!-- END MEGA MENU -->
+      </div>
+    </div>
+<!-- END HEADER MENU -->
+</div>
+
+
+<!-- BEGIN PAGE CONTAINER -->
+<div class="page-container">
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="page-content">
+    <div class="container" id="main">
+
+      <!-- TRATA OS ERROS DE LOGIN.... manter aqui -->
+      <!-- FIM TRATA OS ERROS DE LOGIN.... manter aqui -->
+      <%= yield %>
+    </div>
+    <!-- END PAGE CONTENT -->
+  </div>
+  <!-- END PAGE CONTAINER -->
+</div>
+<!-- END PAGE CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+  <div class="container">
+    2016 &copy; Lucas Signorini - Projeto Proeficiency
+  </div>
+</div>
+<div class="scroll-to-top">
+  <i class="icon-arrow-up"></i>
+</div>
+<!-- END FOOTER -->
+
+<script>
+    jQuery(document).ready(function() {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        Demo.init(); // init demo(theme settings page)
+        QuickSidebar.init(); // init quick sidebar
+        Tasks.initDashboardWidget(); // init tash dashboard widget
+    });
+</script>
+
+</body>
+</html>
